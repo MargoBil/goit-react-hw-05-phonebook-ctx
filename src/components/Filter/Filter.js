@@ -1,15 +1,20 @@
 import React from 'react';
 
+import withTheme from '../../hoc/withTheme ';
+
 import s from './Filter.module.css';
 
-const Filter = ({value, onChange}) => {
+const Filter = ({value, onChange, ...props}) => {
+  const {theme} = props.auth;
+  const isThemeLight = theme === 'light';
   return (
     <div className={s.box}>
-      <label>Find contacts by name
-        <input value = {value} onChange = {onChange}/></label>
+      <label className={isThemeLight ? s.labelLight : s.labelDark}>
+        Find contacts by name
+        <input value={value} onChange={onChange} />
+      </label>
     </div>
+  );
+};
 
-  )
-}
-
-export default Filter;
+export default withTheme(Filter);

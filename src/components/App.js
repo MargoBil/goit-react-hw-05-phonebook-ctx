@@ -6,7 +6,7 @@ import ContactList from './ContactList/ContactList';
 import Section from './Section/Section';
 import Filter from './Filter/Filter';
 import ThemeButton from './ThemeButton/ThemeButton';
-import ThemeContext from '../context/ThemeContext';
+import Wrapper from './Wrapper/Wrapper';
 
 class App extends Component {
   state = {
@@ -80,25 +80,23 @@ class App extends Component {
     const visibleList = visibleContacts.length > 0;
 
     return (
-      <ThemeContext>
-        <div>
-          <Section title="Phonebook">
-            <ContactForm onAddName={this.addName} />
-            {visibleFilter && (
-              <Filter value={filter} onChange={this.changeFilter} />
-            )}
-          </Section>
-          {visibleList && (
-            <Section title="Contacts">
-              <ContactList
-                contacts={visibleContacts}
-                onDeleteContact={this.deleteContact}
-              />
-            </Section>
+      <Wrapper>
+        <ThemeButton />
+        <Section title="Phonebook">
+          <ContactForm onAddName={this.addName} />
+          {visibleFilter && (
+            <Filter value={filter} onChange={this.changeFilter} />
           )}
-          <ThemeButton/>
-        </div>
-      </ThemeContext>
+        </Section>
+        {visibleList && (
+          <Section title="Contacts">
+            <ContactList
+              contacts={visibleContacts}
+              onDeleteContact={this.deleteContact}
+            />
+          </Section>
+        )}
+      </Wrapper>
     );
   }
 }
