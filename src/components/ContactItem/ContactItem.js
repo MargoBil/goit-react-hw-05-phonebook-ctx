@@ -6,16 +6,12 @@ import s from './ContactItem.module.css';
 
 const ContactItem = ({contact, number, onDeleteContact, id, ...props}) => {
   const {theme} = props.auth;
-  const isThemeLight = theme === 'light';
   return (
-    <li className={isThemeLight ? s.itemLight : s.itemDark}>
+    <li className={s[`item${theme}`]}>
       <p>
         {contact}: {number}
       </p>
-      <button
-        className={isThemeLight ? s.btnLight : s.btnDark}
-        onClick={() => onDeleteContact(id)}
-      >
+      <button className={s[`btn${theme}`]} onClick={() => onDeleteContact(id)}>
         Delete
       </button>
     </li>

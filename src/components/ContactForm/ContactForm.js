@@ -31,13 +31,13 @@ class ContactForm extends Component {
   render() {
     const {name, number} = this.state;
     const {theme} = this.props.auth;
-    const isThemeLight = theme === 'light';
+  
     return (
       <form
-        className={isThemeLight ? s.formLight : s.formDark}
+        className={s[`form${theme}`]}
         onSubmit={this.handleSubmit}
       >
-        <label className={isThemeLight ? s.labelLight : s.labelDark}>
+        <label className={s[`label${theme}`]}>
           Name
           <input
             className={s.input}
@@ -47,7 +47,7 @@ class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <label className={isThemeLight ? s.labelLight : s.labelDark}>
+        <label className={s[`label${theme}`]}>
           Number
           <InputMask
             className={s.input}
@@ -59,7 +59,7 @@ class ContactForm extends Component {
           />
         </label>
         <button
-          className={isThemeLight ? s.btnFormLight : s.btnFormDark}
+          className={s[`btnForm${theme}`]}
           type="submit"
         >
           Add contact

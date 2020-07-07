@@ -6,10 +6,9 @@ import s from './Section.module.css';
 
 const Section = ({title, children, ...props}) => {
   const {theme} = props.auth;
-  const isThemeLight = theme === 'light';
   return (
     <section className={s.section}>
-      <h2 className={isThemeLight ? s.nameLight : s.nameDark}>{title}</h2>
+      <h2 className={s[`name${theme}`]}>{title}</h2>
       {children}
     </section>
   );

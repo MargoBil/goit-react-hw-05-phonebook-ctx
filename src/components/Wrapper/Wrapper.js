@@ -4,7 +4,7 @@ import withTheme from '../../hoc/withTheme ';
 
 const Wrapper = ({children, ...props}) => {
   const {theme} = props.auth;
-  const isThemeLigth = theme === 'light';
+  const isThemeLigth = theme === 'Light';
   isThemeLigth
     ? (document.body.style.backgroundColor = '#ffffff')
     : (document.body.style.backgroundColor = '#0a4658');

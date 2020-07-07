@@ -6,10 +6,9 @@ import s from './Filter.module.css';
 
 const Filter = ({value, onChange, ...props}) => {
   const {theme} = props.auth;
-  const isThemeLight = theme === 'light';
   return (
     <div className={s.box}>
-      <label className={isThemeLight ? s.labelLight : s.labelDark}>
+      <label className={s[`label${theme}`]}>
         Find contacts by name
         <input value={value} onChange={onChange} />
       </label>

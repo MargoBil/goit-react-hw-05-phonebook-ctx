@@ -6,11 +6,11 @@ class ThemeContext extends Component {
   static Consumer = Consumer;
   toggleTheme = () => {
     this.setState(prevState => ({
-      theme: prevState.theme === 'light' ? 'dark' : 'light',
+      theme: prevState.theme === 'Light' ? 'Dark' : 'Light',
     }));
   };
   state = {
-    theme: 'light',
+    theme: 'Light',
     toggleTheme: this.toggleTheme,
   };
   render() {
